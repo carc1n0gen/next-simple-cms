@@ -1,3 +1,5 @@
+import "server-only";
+
 import { neboa } from "neboa";
 
 const db = neboa("database.db");

@@ -6,7 +6,8 @@ import { redirect } from "next/navigation";
 
 import { SigninFormSchema, SignupFormSchema } from "@/lib/formSchemas";
 import { Users } from "@/lib/database";
-import { createSession } from "@/lib/session";
+import { deleteSession, setSessionValue } from "@/lib/session";
+import { isAuthenticated } from "@/lib/authorization";
 
 export async function signup(currentState, formData) {
   const validatedFields = SignupFormSchema.safeParse(Object.fromEntries(formData));
@@ -49,6 +50,15 @@ export async function signin(currentState, formData) {
     };
   }
 
-  await createSession(user._id);
+  await setSessionValue("userId", user._id);
   return redirect("/dashboard");
+}
+
+export async function signout() {
+  if (!await isAuthenticated()) {
+    return redirect("/signin");
+  }
+
+  await deleteSession();
+  redirect("/signin");
 }

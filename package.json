@@ -11,6 +11,7 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.6",
+    "jodit-react": "^5.2.19",
     "jose": "^6.0.11",
     "neboa": "^0.6.1",
     "next": "15.3.2",
@@ -23,6 +24,8 @@
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
+    "eslint-config-prettier": "^10.1.5",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4"
   }
 }

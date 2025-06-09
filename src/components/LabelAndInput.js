@@ -1,8 +1,8 @@
 import Form from "react-bootstrap/Form";
 
-export default function LabelAndInput({ id, name, label, type, defaultValue, errors}) {
+export default function LabelAndInput({ id, name, label, type, defaultValue, errors}) {  
   return (
-    <Form.Group className="mb-3">
+    <div className="mb-3">
       <Form.Label htmlFor={id}>{label}</Form.Label>
       <Form.Control
         type={type}
@@ -16,6 +16,6 @@ export default function LabelAndInput({ id, name, label, type, defaultValue, err
           {errors}
         </Form.Control.Feedback>
       )}
-    </Form.Group>
+    </div>
   );
 }
